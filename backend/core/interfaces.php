@@ -25,20 +25,13 @@
 
    */
 
-   namespace Harlequin;
+   namespace Harlequin\Backend\Core;
 
-   require 'backend/bootstrap.php';
+   interface SpecificationApplicationClass {
 
-   // core files
-   require ENVIRONMENT_DIRECTORY_BACKEND_LIBRARIES.'application.php';
-
-   try {
-
-      // DO SOMETHING
-
-   } catch (Exception $application_exception) {
-
-      // DO SOMETHING
+      public function compareTwoStrings($string1, $string2);
+      public function printConstantValue($constant);
+      public function returnConstantValue($constant);
 
    }
 

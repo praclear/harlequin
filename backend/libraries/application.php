@@ -25,21 +25,31 @@
 
    */
 
-   namespace Harlequin;
+   namespace Harlequin\Backend\Libraries;
 
-   require 'backend/bootstrap.php';
+   use Harlequin\Backend\Core;
+   
+   class Application implements SpecificationApplicationClass {
+   
+      public function compareTwoStrings($string1, $string2) {
 
-   // core files
-   require ENVIRONMENT_DIRECTORY_BACKEND_LIBRARIES.'application.php';
+         // strcmp returns 0 if submitted strings are identical
+         return (strcmp($string1, $string2) === 0 ? true : false);
 
-   try {
+      }
 
-      // DO SOMETHING
+      public function printConstantValue($constant) {
 
-   } catch (Exception $application_exception) {
+         echo $this->returnConstantValue($constant);
 
-      // DO SOMETHING
+      }
 
+      public function returnConstantValue($constant) {
+
+         return (defined($constant) === true ? constant($constant) : false);
+
+      }
+   
    }
 
 ?>
