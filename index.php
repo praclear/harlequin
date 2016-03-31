@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
    /*
 
@@ -27,18 +27,39 @@
 
    namespace Harlequin;
 
+   use \Exception;
+   use Harlequin\Backend\Libraries as Library;
+
    require 'backend/bootstrap.php';
 
    // core files
+   require ENVIRONMENT_DIRECTORY_BACKEND_CORE.'interfaces.php';
+
+   // data files
+   require ENVIRONMENT_DIRECTORY_DATA.'settings.php';
+   require ENVIRONMENT_DIRECTORY_DATA_MESSAGES.'errors.php';
+   require ENVIRONMENT_DIRECTORY_DATA_MESSAGES.'exceptions.php';
+
+   // libraries
    require ENVIRONMENT_DIRECTORY_BACKEND_LIBRARIES.'application.php';
+   require ENVIRONMENT_DIRECTORY_BACKEND_LIBRARIES.'log.php';
+
+   // class invocations
+   $application     = new Library\Application();
+   $application_log = new Library\Log();
 
    try {
+
+      // variable-width encoding
+      mb_internal_encoding($application->returnConstantValue('SETTING_ENCODING_VARIABLEWIDTH'));
+      mb_http_output($application->returnConstantValue('SETTING_ENCODING_VARIABLEWIDTH'));
 
       // DO SOMETHING
 
    } catch (Exception $application_exception) {
 
-      // DO SOMETHING
+      $application_log->writeEntryToLogFile($application->returnCurrentDateAndTime(), 'EX', $application_exception->getMessage());
+      exit($application->returnConstantValue('MSG_EXCEPTION_INDEX_GENERAL_PUBLIC'));
 
    }
 

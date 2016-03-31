@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
    /*
 
@@ -29,7 +29,7 @@
 
    // baseline
    define('ENVIRONMENT_BASELINE',                                    realpath(dirname(basename($_SERVER['REQUEST_URI']))));
-   
+
    // directories: backend
    define('ENVIRONMENT_DIRECTORY_BACKEND',                           ENVIRONMENT_BASELINE.'/backend/');
    define('ENVIRONMENT_DIRECTORY_BACKEND_CORE',                      ENVIRONMENT_DIRECTORY_BACKEND.'core/');
@@ -40,7 +40,8 @@
    // directories: data
    define('ENVIRONMENT_DIRECTORY_DATA',                              ENVIRONMENT_BASELINE.'/data/');
    define('ENVIRONMENT_DIRECTORY_DATA_LOCALES',                      ENVIRONMENT_DIRECTORY_DATA.'locales/');
-   define('ENVIRONMENT_DIRECTORY_DATA_LOGFILES',                     ENVIRONMENT_DIRECTORY_DATA.'locales/');
+   define('ENVIRONMENT_DIRECTORY_DATA_LOGFILES',                     ENVIRONMENT_DIRECTORY_DATA.'logfiles/');
+   define('ENVIRONMENT_DIRECTORY_DATA_MESSAGES',                     ENVIRONMENT_DIRECTORY_DATA.'messages/');
 
    // directories: modules
    define('ENVIRONMENT_DIRECTORY_MODULES',                           ENVIRONMENT_BASELINE.'/modules/');

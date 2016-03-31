@@ -25,8 +25,9 @@
 
    */
 
-   namespace Harlequin\Backend;
+   namespace Harlequin\Data\Messages;
 
-   require 'core/environment.php';
+   // index.php
+   define('MSG_EXCEPTION_INDEX_GENERAL_PUBLIC',          '<b>Oops!</b> The application broke without warning. If this keeps happening, an administrator should have a look at the .log file.');
 
 ?>

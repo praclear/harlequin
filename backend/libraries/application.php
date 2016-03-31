@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
    /*
 
@@ -28,9 +28,11 @@
    namespace Harlequin\Backend\Libraries;
 
    use Harlequin\Backend\Core;
-   
-   class Application implements SpecificationApplicationClass {
-   
+
+   class Application implements Core\SpecificationApplicationClass {
+
+      private $dateandtime_current;
+
       public function compareTwoStrings($string1, $string2) {
 
          // strcmp returns 0 if submitted strings are identical
@@ -49,7 +51,15 @@
          return (defined($constant) === true ? constant($constant) : false);
 
       }
-   
+
+      public function returnCurrentDateAndTime() {
+
+         // for format, returnConstantValue method cannot be used
+         $this->dateandtime_current = new \DateTime(null, new \DateTimeZone($this->returnConstantValue('SETTING_DATEANDTIME_TIMEZONE')));
+         return $this->dateandtime_current->format(constant(SETTING_DATEANDTIME_FORMAT));
+
+      }
+
    }
 
 ?>

@@ -25,8 +25,12 @@
 
    */
 
-   namespace Harlequin\Backend;
+   namespace Harlequin\Data\Messages;
 
-   require 'core/environment.php';
+   // libraries\log.php
+   define('MSG_ERROR_LOG_DIRECTORY_NOTCREATED',             '<b>Error!</b> The directory for stroing .log files was non-existent and could not be created.');
+   define('MSG_ERROR_LOG_DIRECTORY_NOTWRITEABLE',           '<b>Error!</b> The directory for stroing .log files is not writeable.');
+   define('MSG_ERROR_LOG_FILE_NOTCREATED',                  '<b>Error!</b> The .log file could for some reason not be created.');
+   define('MSG_ERROR_LOG_FILE_ENTRY_NOTCREATED',            '<b>Error!</b> The .log file entry could for some reason not be created.');
 
 ?>

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
    /*
 
@@ -32,6 +32,13 @@
       public function compareTwoStrings($string1, $string2);
       public function printConstantValue($constant);
       public function returnConstantValue($constant);
+      public function returnCurrentDateAndTime();
+
+   }
+
+   interface SpecificationLogClass {
+
+      public function writeEntryToLogFile($event_timestamp, $event_type, $event);
 
    }
 

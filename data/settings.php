@@ -25,8 +25,19 @@
 
    */
 
-   namespace Harlequin\Backend;
+   namespace Harlequin\Data;
 
-   require 'core/environment.php';
+   // settings: date and time
+   define('SETTING_DATEANDTIME_FORMAT',                                 'DATE_RFC822');
+   define('SETTING_DATEANDTIME_TIMEZONE',                               'UTC');
+
+   // variable-width encoding
+   define('SETTING_ENCODING_VARIABLEWIDTH',                             'UTF-8');
+
+   // settings: logfiles
+   define('SETTING_LOG_MKDIR_RECURSIVE_ENABLE',                         true);
+
+   // settings: security
+   define('SETTING_SECURITY_PERMISSIONS_DIRECTORY_LOGFILES',            0777);
 
 ?>
