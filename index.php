@@ -36,6 +36,7 @@
    require ENVIRONMENT_DIRECTORY_BACKEND_CORE.'interfaces.php';
 
    // data files
+   require ENVIRONMENT_DIRECTORY_DATA.'modules.php';
    require ENVIRONMENT_DIRECTORY_DATA.'settings.php';
    require ENVIRONMENT_DIRECTORY_DATA_MESSAGES.'errors.php';
    require ENVIRONMENT_DIRECTORY_DATA_MESSAGES.'exceptions.php';
@@ -43,12 +44,17 @@
    // libraries
    require ENVIRONMENT_DIRECTORY_BACKEND_LIBRARIES.'application.php';
    require ENVIRONMENT_DIRECTORY_BACKEND_LIBRARIES.'log.php';
+   require ENVIRONMENT_DIRECTORY_BACKEND_LIBRARIES.'module.php';
 
    // class invocations
-   $application     = new Library\Application();
-   $application_log = new Library\Log();
+   $application         = new Library\Application();
+   $application_log     = new Library\Log();
+   $application_module  = new Library\Module();
 
    try {
+
+      // integrity test
+      $application_module->checkInstalledModules();
 
       // variable-width encoding
       mb_internal_encoding($application->returnConstantValue('SETTING_ENCODING_VARIABLEWIDTH'));

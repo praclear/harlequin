@@ -25,27 +25,13 @@
 
    */
 
-   namespace Harlequin\Backend\Core;
+   namespace Harlequin\Data;
 
-   interface SpecificationApplicationClass {
-
-      public function compareTwoStrings($string1, $string2);
-      public function printConstantValue($constant);
-      public function returnConstantValue($constant);
-      public function returnCurrentDateAndTime();
-
-   }
-
-   interface SpecificationLogClass {
-
-      public function writeEntryToLogFile($event_timestamp, $event_type, $event);
-
-   }
-
-   interface SpecificationModuleClass {
-
-      public function checkInstalledModules();
-
-   }
+   define('DATA_MODULES_INSTALLED',          serialize(array('base' => array('name'    => 'Basline Module',
+                                                                             'enabled' => true,
+                                                                             'core'    => true,
+                                                                             'trusted' => true,
+                                                                             'md5sum'  => '1276481102f218c981e0324180bafd9f',
+                                                                             'hook'    => null))));
 
 ?>
